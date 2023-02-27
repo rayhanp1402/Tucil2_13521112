@@ -4,7 +4,7 @@ import math
 def randomCoordinate(n):
     coordinate = []
     for i in range(n):
-        coordinate.append(rand.randrange(-1000, 1000))
+        coordinate.append(round(rand.uniform(-1000, 1000), 2))
     
     return coordinate
 
