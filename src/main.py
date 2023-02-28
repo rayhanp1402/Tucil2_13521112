@@ -18,6 +18,7 @@ print('  \___/|_|   |_|   \___/|_|_| |_|\__|___/               ')
 print('\n=========================================================\n')                           
 
 points = []
+
 flag = False
 while(flag == False):
     try:
@@ -33,7 +34,7 @@ while(flag == False):
     try:
         total_points = int(input('Total Points k (k > 1) : '))
         if (total_points <= 1):
-            print('Invalid input, n must be greater than 1')
+            print('Invalid input, k must be greater than 1')
         else:
             break
     except ValueError:
@@ -70,17 +71,19 @@ print('Brute Force : ')
 print('Point 1 = ' + str(closest_pair_bf[0]))
 print('Point 2 = ' + str(closest_pair_bf[1]))
 print('Distance = ' + str(round(closest_pair_bf[2], 2)))
+print('Euclidean Operation Count = ' + str(closest_pair_bf[3]))
 print("Execution Time = %s seconds" % (end_time))
 print('Run in ' + platform.processor() + ', ' + platform.platform())
 
 # Using Divide and Conquer Algorithm
 start_time = time.time()
-closest_pair_dnc = algo.divideAndConquer(points)
+closest_pair_dnc = algo.divideAndConquer(points, 0)
 end_time = time.time() - start_time
 print('\nDivide and Conquer : ')
 print('Point 1 = ' + str(closest_pair_dnc[0]))
 print('Point 2 = ' + str(closest_pair_dnc[1]))
 print('Distance = ' + str(round(closest_pair_dnc[2], 2)))
+print('Euclidean Operation Count = ' + str(closest_pair_dnc[3]))
 print("Execution Time = %s seconds" % (end_time))
 print('Run in ' + platform.processor() + ', ' + platform.platform())
 

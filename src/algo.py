@@ -18,18 +18,20 @@ def distance(point1, point2):
 
 
 def bruteForce(points):
+    count = 0
     closest_pair_distance = 999999999
     closest_point1 = points[0]
     closest_point2 = points[1]
     for i in range(len(points)):
         for j in range(len(points)):
             dist = distance(points[i], points[j])
+            count += 1
             if (i != j and dist <= closest_pair_distance):
                 closest_pair_distance = dist
                 closest_point1 = points[i]
                 closest_point2 = points[j]
 
-    return (closest_point1, closest_point2, closest_pair_distance)
+    return (closest_point1, closest_point2, closest_pair_distance, count)
 
 
 def selectionSort(points):  # Sort by x-axis value
@@ -48,15 +50,17 @@ def selectionSort(points):  # Sort by x-axis value
         points[min_idx] = temp
 
 
-def divideAndConquer(points):
+def divideAndConquer(points, count):
     n = len(points)
     if (n == 2):    # Base case 1
-        return (points[0], points[1], distance(points[0], points[1]))
+        count += 1
+        return (points[0], points[1], distance(points[0], points[1]), count)
     
     if (n == 3):    # Base case 2
-        min_dist = distance(points[0], points[1])  
+        min_dist = distance(points[0], points[1])
         dist2 = distance(points[0], points[2])
         dist3 = distance(points[1], points[2])
+        count += 3
         closest_point1 = points[0]
         closest_point2 = points[1]
 
@@ -69,15 +73,16 @@ def divideAndConquer(points):
              closest_point1 = points[1]
              closest_point2 = points[2]
              
-        return (closest_point1, closest_point2, min_dist)
+        return (closest_point1, closest_point2, min_dist, count)
 
     # Recursion
     mid = n // 2
     leftPoints = points[:mid]
     rightPoints = points[mid:]
 
-    point1_1, point2_1, dist1 = divideAndConquer(leftPoints)
-    point1_2, point2_2, dist2 = divideAndConquer(rightPoints)
+    point1_1, point2_1, dist1, count1 = divideAndConquer(leftPoints, 0)
+    point1_2, point2_2, dist2, count2 = divideAndConquer(rightPoints, 0)
+    count += count1 + count2
 
     closest_point1 = []
     closest_point2 = []
@@ -109,9 +114,10 @@ def divideAndConquer(points):
     for i in range(len(tempPoints)):
         for j in range(i+1, len(tempPoints)):
             tempDist = distance(tempPoints[i], tempPoints[j])
+            count += 1
             if (tempDist < min_dist):
                 min_dist = tempDist
                 closest_point1 = tempPoints[i]
                 closest_point2 = tempPoints[j]
 
-    return (closest_point1, closest_point2, min_dist)
+    return (closest_point1, closest_point2, min_dist, count)
