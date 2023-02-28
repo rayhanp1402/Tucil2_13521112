@@ -1,8 +1,8 @@
 # Tugas Kecil 2 IF2211 Strategi Algoritma
 ## Semester 2 (Genap) Tahun 2022/2023
-### Pencarian Sepasang Titik Terdekat pada Ruang N-Dimensi dengan Algoritma Divide and Conquer
+## Pencarian Sepasang Titik Terdekat pada Ruang N-Dimensi dengan Algoritma Divide and Conquer
 
-### Deskripsi Program
+## Deskripsi Program
 
 Program menerima input berupa n dimensi (n > 0) dan jumlah titik k (k > 1). Akan dicari
 sepasang titik dari himpunan titik n-dimensi yang dibangkitkan secara acak sejumlah k dengan 
@@ -17,19 +17,19 @@ Algoritma Divide and Conquer secara singkat dilakukan dengan langkah:
 5. Akan diambil nilai delta, yaitu nilai jarak minimum dari kedua bagian daerah. Ditarik sebuah daerah dari pembagi sejauh delta. Titik yang berada di daerah tersebut (daerah dengan jarak delta dari pembagi) dicari jarak terkecilnya.
 6. Dilakukan berulang kali secara rekursif hingga mendapat jarak terkecil dari himpunan titik tersebut.
 
-### Requirement
+## Requirement
 - [Python3](https://www.python.org/downloads/) 
 - matplotlib
 - Library time, platform, random, math (standard library, sehingga seharusnya sudah disertakan saat meng-install python)
 
-### Cara Clone Program
+## Cara Clone Program
 Agar program dapat dijalankan pada mesin Anda, clone repository program dengan cara
 
 ```sh
 git clone https://github.com/rayhanp1402/Tucil2_13521112
 ```
 
-### Cara Run Program
+## Cara Run Program
 Jalankan main.py. Apabila menggunakan command-line, masuk ke folder root repository dan jalankan perintah berikut
 
 ```sh
