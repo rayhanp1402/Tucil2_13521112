@@ -18,7 +18,9 @@ while (duplicate == True):
             if(i != j and points[i] == points[j]):
                 duplicate = True
                 points[j] = algo.randomCoordinate(n)
-
+                
+# Sorting
+algo.selectionSort(points)
 
 # Outputs the points
 print('\nPoints : ')
@@ -26,11 +28,11 @@ for i in range(total_points):
     print(str(i + 1) + '. ' + str(points[i]))
 
 # Find the closest pair of points
-closest_pair = algo.bruteForce(points)
+closest_pair = algo.divideAndConquer(points)
 print('\nClosest Pairs : ')
 print('Point 1 = ' + str(closest_pair[0]))
 print('Point 2 = ' + str(closest_pair[1]))
-print('Distance = ' + str(closest_pair[2]))
+print('Distance = ' + str(round(closest_pair[2], 2)))
 
 # Visualizer
 plot_color = 'blue'
