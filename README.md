@@ -30,35 +30,13 @@ git clone https://github.com/rayhanp1402/Tucil2_13521112
 ```
 
 ### Cara Run Program
-Untuk menjalankan program, buka console dan masuk ke directory tempat Anda clone repository ini. Kemudian, jalankan perintah berikut
+Jalankan main.py. Apabila menggunakan command-line, masuk ke folder root repository dan jalankan perintah berikut
 
 ```sh
-cd Tucil1_13521112/bin
+cd Tucil2_13521112/src
 
-24solver
+python main.py
 ```
-
-Atau jika Anda telah mengkompilasi sendiri, buka console dan masuk ke directory tempat Anda clone repository ini dan jalankan perintah berikut
-
-```sh
-cd Tucil1_13521112/bin
-
-nama_file_executable
-```
-
-### Cara Kompilasi Program
-Jika Anda ingin mengkompilasi secara manual, buka console dan masuk ke directory tempat Anda clone repository ini dan jalankan perintah berikut
-
-```sh
-cd Tucil1_13521112/src
-```
-
-Anda akan berada pada directory untuk source code. Untuk mengkompilasi, jalankan perintah berikut
-
-```sh
-g++ -o nama_file_executable main.cpp solve24.cpp permutations.cpp
-```
-
 ### Penggunaan Program
 Saat run program, pertama kali akan ditampilkan main menu. Dari situ, pengguna memiliki pilihan untuk keluar dari program
 atau "solve", yaitu mencari solusi untuk permainan Kartu 24.
