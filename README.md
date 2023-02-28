@@ -10,7 +10,7 @@ jarak terdekat d menggunakan rumus Euclidean Distance. Program menggunakan algor
 Conquer kemudian dibandingkan dengan algoritma Brute Force. Program juga akan menampilkan visualisasi
 dari titik-titik tersebut.
 Algoritma Divide and Conquer secara singkat dilakukan dengan langkah:
-1. Masukan berupa larik bertipe titik di ruang N-Dimensi yang telah terurut berdasarkan nilai sumbu-x atau u11.
+1. Masukan berupa larik bertipe titik di ruang N-Dimensi yang telah terurut berdasarkan nilai sumbu-x atau u11 (lihat laporan).
 2. Kasus basisnya adalah ketika hanya terdapat dua titik dimana jaraknya dapat langsung dihitung dengan rumus Euclidean, atau tiga titik yang jarak terdekatnya juga dapat langsung dihitung dalam tiga perhitungan Euclidean.
 3. Jika belum mencapai kasus basis, rekursi dilakukan dengan membagi larik menjadi dua bagian/daerah sama rata secara terus-menerus.
 4. Masing-masing bagian/daerah akan dicari untuk jarak terkecil dari titik-titiknya, dan diambil nilai minimum dari kedua bagian daerah.
