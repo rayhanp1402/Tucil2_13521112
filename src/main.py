@@ -1,10 +1,41 @@
 import matplotlib.pyplot as plt
 import algo
 
-points = []
+print('=========================================================') 
+print('   _____ _                     _     _____      _       ')
+print('  / ____| |                   | |   |  __ \    (_)      ')
+print(' | |    | | ___  ___  ___  ___| |_  | |__) |_ _ _ _ __  ')
+print(' | |    | |/ _ \/ __|/ _ \/ __| __| |  ___/ _\` | | \'__| ')
+print(' | |____| | (_) \__ \  __/\__ \ |_  | |  | (_| | | |    ')
+print('  \_____|_|\___/|___/\___||___/\__| |_|   \__,_|_|_|    ')
+print('        / _| |  __ \    (_)     | |                     ')
+print('   ___ | |_  | |__) |__  _ _ __ | |_ ___                ')
+print('  / _ \|  _| |  ___/ _ \| | \'_ \| __/ __|               ')
+print(' | (_) | |   | |  | (_) | | | | | |_\__ \               ')
+print('  \___/|_|   |_|   \___/|_|_| |_|\__|___/               ')
+print('\n=========================================================\n')                           
 
-n = int(input('Dimension : '))
-total_points = int(input('Total Points : '))
+points = []
+flag = False
+while(flag == False):
+    try:
+        n = int(input('Dimension n (n > 0) : '))
+        if (n <= 0):
+            print('Invalid input, n must be greater than 0')
+        else:
+            break
+    except ValueError:
+        print('Invalid input type, must be integer')
+
+while(flag == False):
+    try:
+        total_points = int(input('Total Points k (k > 1) : '))
+        if (total_points <= 1):
+            print('Invalid input, n must be greater than 1')
+        else:
+            break
+    except ValueError:
+        print('Invalid input type, must be integer')
 
 for i in range(total_points): # Generate random points
     points.append(algo.randomCoordinate(n))
@@ -19,7 +50,7 @@ while (duplicate == True):
                 duplicate = True
                 points[j] = algo.randomCoordinate(n)
                 
-# Sorting
+# Sort based on x-axis value
 algo.selectionSort(points)
 
 # Outputs the points
@@ -28,11 +59,20 @@ for i in range(total_points):
     print(str(i + 1) + '. ' + str(points[i]))
 
 # Find the closest pair of points
-closest_pair = algo.divideAndConquer(points)
-print('\nClosest Pairs : ')
-print('Point 1 = ' + str(closest_pair[0]))
-print('Point 2 = ' + str(closest_pair[1]))
-print('Distance = ' + str(round(closest_pair[2], 2)))
+print('\nClosest pair of points : ')
+# Using Brute Force Algorithm
+closest_pair_bf = algo.bruteForce(points)
+print('Brute Force : ')
+print('Point 1 = ' + str(closest_pair_bf[0]))
+print('Point 2 = ' + str(closest_pair_bf[1]))
+print('Distance = ' + str(round(closest_pair_bf[2], 2)))
+
+# Using Divide and Conquer Algorithm
+closest_pair_dnc = algo.divideAndConquer(points)
+print('\nDivide and Conquer : ')
+print('Point 1 = ' + str(closest_pair_dnc[0]))
+print('Point 2 = ' + str(closest_pair_dnc[1]))
+print('Distance = ' + str(round(closest_pair_dnc[2], 2)))
 
 # Visualizer
 plot_color = 'blue'
@@ -49,7 +89,7 @@ if (n == 1):
     plt.hlines(0, min, max, color='black')  # Draw a horizontal line
     for i in range(total_points):
         plot_color = 'blue'
-        if(points[i] == closest_pair[0] or points[i] == closest_pair[1]):
+        if(points[i] == closest_pair_dnc[0] or points[i] == closest_pair_dnc[1]):
             plot_color = 'orange'
 
         plt.scatter(points[i][0], 0, color=plot_color)
@@ -59,7 +99,7 @@ if (n == 1):
 elif (n == 2):
     for i in range(total_points):
         plot_color = 'blue'
-        if(points[i] == closest_pair[0] or points[i] == closest_pair[1]):
+        if(points[i] == closest_pair_dnc[0] or points[i] == closest_pair_dnc[1]):
             plot_color = 'orange'
 
         plt.scatter(points[i][0], points[i][1], color=plot_color)
@@ -73,7 +113,7 @@ elif (n == 3):
 
     for i in range(total_points):
         plot_color = 'blue'
-        if(points[i] == closest_pair[0] or points[i] == closest_pair[1]):
+        if(points[i] == closest_pair_dnc[0] or points[i] == closest_pair_dnc[1]):
             plot_color = 'orange'
 
         ax.scatter(points[i][0], points[i][1], points[i][2], color=plot_color)

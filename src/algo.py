@@ -111,6 +111,7 @@ def divideAndConquer(points):
              min_dist = dist3
              closest_point1 = points[1]
              closest_point2 = points[2]
+             
         return (closest_point1, closest_point2, min_dist)
 
     # Recursion
