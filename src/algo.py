@@ -32,49 +32,6 @@ def bruteForce(points):
     return (closest_point1, closest_point2, closest_pair_distance)
 
 
-def merge(leftPoints, rightPoints, points):
-    i = 0
-    j = 0
-    k = 0
-    while(i < len(leftPoints) and j < len(leftPoints)):
-        if(leftPoints[i][0] < rightPoints[j][0]):   # Compare by x-axis value
-            points[k] = leftPoints[i]
-            i += 1
-        else:
-            points[k] = rightPoints[j]
-            j += 1
-        k += 1
-
-    while(i < len(leftPoints)):
-        points[k] = leftPoints[i]
-        i += 1
-        k += 1
-
-    while(j < len(rightPoints)):
-        points[k] = rightPoints[j]
-        j += 1
-        k += 1
-
-
-def mergeSort(points):
-    k = len(points)
-    if(k == 1):   # Base case
-        return
-    else:   # Recursion
-        mid = k//2
-        leftPoints = []
-        rightPoints = []
-
-        for i in range(mid):
-            leftPoints.append(points[i])
-        for i in range(mid, k):
-            rightPoints.append(points[i])
-
-        mergeSort(leftPoints)
-        mergeSort(rightPoints)
-        merge(leftPoints, rightPoints, points)
-
-
 def selectionSort(points):  # Sort by x-axis value
     for i in range(len(points)):
         temp = []

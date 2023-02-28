@@ -1,4 +1,6 @@
 import matplotlib.pyplot as plt
+import time
+import platform
 import algo
 
 print('=========================================================') 
@@ -61,18 +63,26 @@ for i in range(total_points):
 # Find the closest pair of points
 print('\nClosest pair of points : ')
 # Using Brute Force Algorithm
+start_time = time.time()
 closest_pair_bf = algo.bruteForce(points)
+end_time = time.time() - start_time
 print('Brute Force : ')
 print('Point 1 = ' + str(closest_pair_bf[0]))
 print('Point 2 = ' + str(closest_pair_bf[1]))
 print('Distance = ' + str(round(closest_pair_bf[2], 2)))
+print("Execution Time = %s seconds" % (end_time))
+print('Run in ' + platform.processor() + ', ' + platform.platform())
 
 # Using Divide and Conquer Algorithm
+start_time = time.time()
 closest_pair_dnc = algo.divideAndConquer(points)
+end_time = time.time() - start_time
 print('\nDivide and Conquer : ')
 print('Point 1 = ' + str(closest_pair_dnc[0]))
 print('Point 2 = ' + str(closest_pair_dnc[1]))
 print('Distance = ' + str(round(closest_pair_dnc[2], 2)))
+print("Execution Time = %s seconds" % (end_time))
+print('Run in ' + platform.processor() + ', ' + platform.platform())
 
 # Visualizer
 plot_color = 'blue'
